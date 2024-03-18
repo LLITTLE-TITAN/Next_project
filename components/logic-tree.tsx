@@ -67,7 +67,7 @@ const LogicTree: NextPage = () => {
                 13:44
               </div>
             </div>
-            <button className="cursor-pointer [border:none] py-2 px-4 bg-blueviolet flex-1 rounded-xl flex flex-row items-center justify-center gap-[0px_6px] whitespace-nowrap hover:bg-mediumslateblue">
+            <button className="cursor-pointer [border:none] bg-[#724bf9] py-2 px-4 bg-blueviolet flex-1 rounded-xl flex flex-row items-center justify-center gap-[0px_6px] whitespace-nowrap hover:bg-mediumslateblue">
               <div className="flex-1 relative text-sm leading-[120%] font-semibold font-caption-1-regular text-neutral-00 text-center whitespace-nowrap">
                 New Event
               </div>

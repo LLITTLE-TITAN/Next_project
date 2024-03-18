@@ -76,7 +76,7 @@ const Portal1: NextPage = () => {
                   13:44
                 </div>
               </div>
-              <button className="cursor-pointer [border:none] py-2 px-4 bg-blueviolet flex-1 rounded-xl flex flex-row items-center justify-center gap-[0px_6px] whitespace-nowrap hover:bg-mediumslateblue">
+              <button className="cursor-pointer bg-[#724bf9]  [border:none] py-2 px-4 bg-blueviolet flex-1 rounded-xl flex flex-row items-center justify-center gap-[0px_6px] whitespace-nowrap hover:bg-mediumslateblue">
                 <div className="flex-1 relative text-sm leading-[120%] font-semibold font-caption-1-regular text-neutral-00 text-center">
                   New Event
                 </div>
@@ -129,7 +129,7 @@ const Portal1: NextPage = () => {
                   <div className="flex-1 relative">
                     <span>C</span>
                     <span className="font-medium text-neutral-00">re</span>
-                    <span>ate Portal</span>
+                    <span>create Portal</span>
                   </div>
                 </div>
                 <div className="w-[38px] rounded-sm1 bg-darkslategray-400 box-border flex flex-row items-start justify-start py-2 px-[7px] text-left text-xs border-[1px] border-solid border-stroke-gradient-dark">

@@ -1,7 +1,15 @@
 import type { NextPage } from "next";
 import FrameComponent1 from "./live_frame-component1";
 import React, { useState } from "react";
-const FrameComponent: NextPage = () => {
+
+interface NavigateProps {
+  IncreaseScreenSize: () => void;
+  DecreaseScreenSize: () => void;
+}
+const FrameComponent: React.FC<NavigateProps> = ({
+  IncreaseScreenSize,
+  DecreaseScreenSize,
+}) => {
   const [isContentVisible, setIsContentVisible] = useState(false);
 
   const handleToggleContent = () => {
@@ -10,7 +18,7 @@ const FrameComponent: NextPage = () => {
   return (
     <div className="self-stretch flex flex-col items-start justify-start gap-[31px] text-center text-13xl text-gray-700 font-headline-2-regular mq450:gap-[15px_31px]">
       <div className="flex flex-row items-start justify-start py-0 px-2.5">
-        <button className="cursor-pointer py-[14.5px] px-[15px] bg-gray-500 rounded-46xl flex flex-row items-start justify-start gap-[8px] whitespace-nowrap border-[1px] border-solid border-dimgray-300 hover:bg-gainsboro-200 hover:box-border hover:border-[1px] hover:border-solid hover:border-gray-900">
+        <button className="bg-[#808080] cursor-pointer py-[14.5px] px-[15px] rounded-46xl flex flex-row items-start justify-start gap-[8px] whitespace-nowrap border-[1px] border-solid border-dimgray-300 hover:bg-[#808080] hover:box-border hover:border-[1px] hover:border-solid hover:border-gray-900">
           <img
             className="h-[18px] w-[18px] relative overflow-hidden shrink-0 min-h-[18px]"
             alt=""
@@ -85,9 +93,6 @@ const FrameComponent: NextPage = () => {
                   <div className="flex-1 relative font-medium text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                     Switch to admin panel
                   </div>
-                  <div className="w-[101px] relative text-base font-medium font-body-body-3-medium hidden">
-                    For 5000 SMS
-                  </div>
                 </div>
               </div>
               <div className="self-stretch rounded-md flex flex-row items-center justify-start py-1 px-2">
@@ -106,7 +111,8 @@ const FrameComponent: NextPage = () => {
                   <div className="h-[19px] w-0 relative text-base font-medium font-body-body-3-medium inline-block" />
                   <div className="flex flex-row items-center justify-center gap-[6px] text-xs">
                     <img
-                      className="h-3.5 w-3.5 relative overflow-hidden shrink-0"
+                      onClick={DecreaseScreenSize}
+                      className="h-3.5 w-3.5 relative overflow-hidden shrink-0 cursor-pointer"
                       loading="lazy"
                       alt=""
                       src="/minus.svg"
@@ -115,7 +121,8 @@ const FrameComponent: NextPage = () => {
                       100%
                     </div>
                     <img
-                      className="h-3.5 w-3.5 relative overflow-hidden shrink-0"
+                      onClick={IncreaseScreenSize}
+                      className="cursor-pointer h-3.5 w-3.5 relative overflow-hidden shrink-0"
                       loading="lazy"
                       alt=""
                       src="/plus-7.svg"

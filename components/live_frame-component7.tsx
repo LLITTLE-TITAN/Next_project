@@ -10,7 +10,7 @@ const FrameComponent7: NextPage = () => {
   return (
     <div className="self-stretch flex flex-col items-start justify-start gap-[31px] text-center text-13xl text-gray-700 font-headline-2-regular mq450:gap-[15px_31px]">
       <div className="flex flex-row items-start justify-start py-0 px-2.5">
-        <button className="cursor-pointer py-[14.5px] px-[15px] bg-gray-500 rounded-46xl flex flex-row items-start justify-start gap-[8px] whitespace-nowrap border-[1px] border-solid border-dimgray-300 hover:bg-gainsboro-200 hover:box-border hover:border-[1px] hover:border-solid hover:border-gray-900">
+        <button className="cursor-pointer py-[14.5px] px-[15px] bg-[#808080] rounded-46xl flex flex-row items-start justify-start gap-[8px] whitespace-nowrap border-[1px] border-solid border-dimgray-300 hover:bg-gainsboro-200 hover:box-border hover:border-[1px] hover:border-solid hover:border-gray-900">
           <img
             className="h-[18px] w-[18px] relative overflow-hidden shrink-0 min-h-[18px]"
             alt=""

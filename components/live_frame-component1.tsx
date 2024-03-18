@@ -28,7 +28,7 @@ const FrameComponent1: NextPage = () => {
           <div className="self-stretch flex flex-row items-start justify-start py-0 px-[55px] mq450:pl-5 mq450:pr-5 mq450:box-border">
             <h2 className="m-0 flex-1 relative text-inherit leading-[130%] font-semibold font-inherit mq900:text-7xl mq900:leading-[33px] mq450:text-lgi mq450:leading-[25px]">
               <span>{` `}</span>
-              <span className="text-neutral-00">{`Ucasty.com `}</span>
+              <span className={` text-neutral-00`}>{`Ucasty.com `}</span>
             </h2>
           </div>
           <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[75px] pl-[75.5px] text-neutral-00 mq450:pl-5 mq450:pr-5 mq450:box-border">
