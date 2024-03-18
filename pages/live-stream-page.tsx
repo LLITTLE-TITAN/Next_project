@@ -17,6 +17,7 @@ const LivesStreamPageDark: NextPage = () => {
   };
   const IncreaseScreenSize = () => {
     setZoomFactor((prevFactor) => Math.min(200, prevFactor + 10));
+    console.log(zoomFactor)
   };
   const DecreaseScreenSize = () => {
     setZoomFactor((prevFactor) => Math.max(25, prevFactor - 10)); // Decrease zoom factor by 10%, with a minimum value of 10%
@@ -57,6 +58,7 @@ const LivesStreamPageDark: NextPage = () => {
             <FrameComponent
               IncreaseScreenSize={IncreaseScreenSize}
               DecreaseScreenSize={DecreaseScreenSize}
+              zoomFactor={zoomFactor}
             />
           </div>
 
