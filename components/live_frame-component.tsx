@@ -120,7 +120,7 @@ const FrameComponent: React.FC<NavigateProps> = ({
                       src="/minus.svg"
                     />
                     <div className="relative leading-[140%] font-medium text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
-                      {zoomFactor}
+                      {zoomFactor}%
                     </div>
                     <img
                       onClick={IncreaseScreenSize}
