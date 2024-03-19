@@ -1,19 +1,45 @@
 import type { NextPage } from "next";
-
+import { useEffect } from "react";
 const NotificationContainer: NextPage = () => {
+  useEffect(() => {
+    const container = document.getElementById("scroll-container");
+    if (container) {
+      container.addEventListener("mouseenter", () => {
+        container.style.overflowY = "auto";
+      });
+      container.addEventListener("mouseleave", () => {
+        container.style.overflowY = "hidden";
+      });
+    }
+  }, []);
   return (
     <div className="flex-1 flex flex-col items-start justify-start pt-0 px-0 pb-1 text-left text-base text-neutral-00 font-caption-1-medium">
-      <div className="self-stretch bg-gray-3100 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.15)] flex flex-col items-start justify-start relative text-xl text-purple-color-40 border-b-[1px] border-solid border-dimgray-800">
+      <div className="self-stretch bg-gray-3100 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.15)] flex flex-col items-start justify-start relative text-xl text-purple-color-40 border-b-[1px] border-solid border-dimgray-700">
         <div className="self-stretch flex flex-row items-center justify-start pt-3 px-5 pb-2 gap-[6px] z-[0]">
           <div className="flex-1 relative font-medium text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
             Your Notification
           </div>
           <div className="flex flex-row items-center justify-start gap-[4px] text-sm">
-            <input
+            {/* <input
               className="w-5 relative h-5 overflow-hidden shrink-0"
               type="checkbox"
-            />
-            <div className="relative font-medium">Mark all as read</div>
+            /> */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              className="flex justify-center mt-1"
+            >
+              <path
+                d="M 15.53125 5 L 9.5625 11.28125 L 8.40625 9.96875 L 7 11.375 L 8.21875 12.71875 L 7 14 L 3.40625 9.96875 L 2 11.375 L 7 17 L 17 6.375 L 15.53125 5 z M 20.53125 5 L 12 14 L 11.59375 13.53125 L 10.21875 15 L 12 17 L 22 6.375 L 20.53125 5 z"
+                fill="#724bf9"
+              />
+            </svg>
+
+            <div className="relative font-medium text-[#724bf9]">
+              Mark all as read
+            </div>
           </div>
         </div>
         <div className="self-stretch flex flex-col items-start justify-start py-0 px-5 z-[1] text-sm text-neutral-00">
@@ -42,140 +68,93 @@ const NotificationContainer: NextPage = () => {
           alt=""
         />
       </div>
-      <div className="self-stretch flex flex-row items-center justify-start py-2.5 px-5 gap-[8px] text-gray-3400">
-        <div className="flex-1 flex flex-col items-start justify-center gap-[8px]">
-          <div className="self-stretch flex flex-row items-center justify-start relative gap-[12px]">
-            <div className="flex flex-row items-start justify-start relative z-[0] text-5xs">
-              <img
-                className="w-10 rounded-sm1 h-10 overflow-hidden shrink-0 object-cover z-[0]"
-                src="/1.png"
-              />
- 
-            </div>
-            <div className="flex-1 relative leading-[140%] z-[1]">
-              <span className="font-medium">{`Amalia andani `}</span>
-              <span className="text-[#5B5B5B]">{`waved to you during `}</span>
-              <span className="font-medium">Fitness event</span>
-            </div>
-            <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
-          </div>
-          <div className="flex flex-col items-start justify-center py-0 pr-0 pl-[52px] text-2xs-5 text-neutral-00">
-            <div className="rounded-4xs bg-neutral-90 overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
-              <img
-                className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                alt=""
-              />
-              <div className="relative leading-[15px] font-semibold whitespace-pre-wrap">
-                👋 Waved back
+      <div id="scroll-container" style={{ overflowY: "hidden" }}>
+        <div className="self-stretch flex flex-row items-center justify-start py-2.5 px-5 gap-[8px] text-gray-3400">
+          <div className="flex-1 flex flex-col items-start justify-center gap-[8px]">
+            <div className="self-stretch flex flex-row items-center justify-start relative gap-[12px]">
+              <div className="flex flex-row items-start justify-start relative z-[0] text-5xs">
+                <img
+                  className="w-10 rounded-sm1 h-10 overflow-hidden shrink-0 object-cover z-[0]"
+                  src="/1.png"
+                />
               </div>
-              
-              <img
-                className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <div className="w-2 relative rounded-[50%] bg-tomato h-2" />
-      </div>
-      <div className="self-stretch flex flex-row items-center justify-start py-2.5 px-5 gap-[8px] text-gray-3400">
-        <div className="flex-1 flex flex-row items-center justify-start relative gap-[12px]">
-          <div className="flex flex-row items-start justify-start relative z-[0] text-5xs">
-            <img
-              className="w-10 rounded-sm1 h-10 overflow-hidden shrink-0 object-cover z-[0]"
-              src="/2.png"
-            />
-          </div>
-          <div className="flex-1 relative leading-[140%] z-[1]">
-            <span className="font-medium">{`Amalia and 11 other `}</span>
-            <span className="text-[#5B5B5B]">waved to you during</span>
-            <span className="font-medium"> Fitness Event</span>
-          </div>
-            <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
-
-        </div>
-        <div className="w-2 relative rounded-[50%] bg-tomato h-2" />
-      </div>
-      <div className="self-stretch flex flex-row items-center justify-start py-2.5 px-5 gap-[8px] text-gray-3400">
-        <div className="flex-1 flex flex-col items-start justify-center gap-[8px]">
-          <div className="self-stretch flex flex-row items-center justify-start relative gap-[12px]">
-            <div className="flex flex-row items-start justify-start z-[0]">
-              <img
-                className="w-10 relative rounded-[7.38px] h-10 overflow-hidden shrink-0"
-                src="/3.png"
-              />
-            </div>
-            <div className="flex-1 relative leading-[140%] z-[1]">
-              <span className="font-medium">{`Fitness event `}</span>
-              <span  className="text-[#5B5B5B]">{`is starting today at `}</span>
-              <span className="font-medium">13:00. Don’t miss out</span>
-            </div>
-            <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
-
-          </div>
-          <div className="flex flex-row items-center justify-start py-0 pr-0 pl-[52px] gap-[8px] text-2xs-5 text-neutral-00">
-            <div className="rounded-4xs bg-[#412E67] overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
-              <img
-                className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                src="/3.png"
-              />
-              <div className="relative leading-[15px] font-semibold opacity-[0.5]">
-                Join Event
+              <div className="flex-1 relative leading-[140%] z-[1]">
+                <span className="font-medium">{`Amalia andani `}</span>
+                <span className="text-[#5B5B5B]">{`waved to you during `}</span>
+                <span className="font-medium">Fitness event</span>
               </div>
-              <img
-                className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                src="/3.png"
-              />
+              <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
             </div>
-            <div className="rounded-4xs bg-neutral-90 overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
-              <img
-                className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                src="/3.png"
-              />
-              <div className="relative leading-[15px] font-semibold">
-                Add reminder
-              </div>
-              <img
-                className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <div className="w-2 relative rounded-[50%] bg-tomato h-2" />
-      </div>
-      <div className="self-stretch flex flex-col items-start justify-center py-2.5 px-5">
-        <div className="self-stretch flex flex-row items-start justify-start relative gap-[12px]">
-          <div className="flex flex-row items-start justify-start z-[0]">
-            <img
-              className="w-10 relative rounded-[7.38px] h-10 overflow-hidden shrink-0"
-              src="/3.png"
-            />
-          </div>
-          <div className="flex-1 flex flex-col items-start justify-center gap-[8px] z-[1]">
-            <div className="self-stretch relative leading-[140%]">
-              <span>{`Fitness event `}</span>
-              <span>starting in</span>
-              <span> 15 Mins</span>
-            </div>
-            <div className="flex flex-row items-center justify-start gap-[8px] text-2xs-5">
-              <div className="rounded-4xs bg-[#412E67] overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
+            <div className="flex flex-col items-start justify-center py-0 pr-0 pl-[52px] text-2xs-5 text-neutral-00">
+              <div className="rounded-4xs bg-neutral-90 overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
                 <img
                   className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
                   alt=""
+                />
+                <div className="relative leading-[15px] font-semibold whitespace-pre-wrap">
+                  👋 Waved back
+                </div>
+
+                <img
+                  className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-2 relative rounded-[50%] bg-tomato h-2" />
+        </div>
+        <div className="self-stretch flex flex-row items-center justify-start py-2.5 px-5 gap-[8px] text-gray-3400">
+          <div className="flex-1 flex flex-row items-center justify-start relative gap-[12px]">
+            <div className="flex flex-row items-start justify-start relative z-[0] text-5xs">
+              <img
+                className="w-10 rounded-sm1 h-10 overflow-hidden shrink-0 object-cover z-[0]"
+                src="/2.png"
+              />
+            </div>
+            <div className="flex-1 relative leading-[140%] z-[1]">
+              <span className="font-medium">{`Amalia and 11 other `}</span>
+              <span className="text-[#5B5B5B]">waved to you during</span>
+              <span className="font-medium"> Fitness Event</span>
+            </div>
+            <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
+          </div>
+          <div className="w-2 relative rounded-[50%] bg-tomato h-2" />
+        </div>
+        <div className="self-stretch flex flex-row items-center justify-start py-2.5 px-5 gap-[8px] text-gray-3400">
+          <div className="flex-1 flex flex-col items-start justify-center gap-[8px]">
+            <div className="self-stretch flex flex-row items-center justify-start relative gap-[12px]">
+              <div className="flex flex-row items-start justify-start z-[0]">
+                <img
+                  className="w-10 relative rounded-[7.38px] h-10 overflow-hidden shrink-0"
+                  src="/3.png"
+                />
+              </div>
+              <div className="flex-1 relative leading-[140%] z-[1]">
+                <span className="font-medium">{`Fitness event `}</span>
+                <span className="text-[#5B5B5B]">{`is starting today at `}</span>
+                <span className="font-medium">13:00. Don’t miss out</span>
+              </div>
+              <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
+            </div>
+            <div className="flex flex-row items-center justify-start py-0 pr-0 pl-[52px] gap-[8px] text-2xs-5 text-neutral-00">
+              <div className="rounded-4xs bg-[#412E67] overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
+                <img
+                  className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
+                  src="/3.png"
                 />
                 <div className="relative leading-[15px] font-semibold opacity-[0.5]">
                   Join Event
                 </div>
                 <img
                   className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                  alt=""
+                  src="/3.png"
                 />
               </div>
               <div className="rounded-4xs bg-neutral-90 overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
                 <img
                   className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
-                  alt=""
+                  src="/3.png"
                 />
                 <div className="relative leading-[15px] font-semibold">
                   Add reminder
@@ -187,47 +166,43 @@ const NotificationContainer: NextPage = () => {
               </div>
             </div>
           </div>
+          <div className="w-2 relative rounded-[50%] bg-tomato h-2" />
         </div>
-      </div>
-      <div className="self-stretch flex flex-col items-start justify-center py-2.5 px-5 text-gray-3000">
-        <div className="self-stretch flex flex-row items-start justify-start relative gap-[12px]">
-          <div className="flex flex-row items-start justify-start z-[0]">
-            <img
-              className="w-10 relative rounded-[7.38px] h-10 overflow-hidden shrink-0"
-              src="/3.png"
-            />
-          </div>
-          <div className="flex-1 flex flex-col items-start justify-center z-[1]">
-            <div className="self-stretch flex flex-col items-start justify-center gap-[2px]">
-              <div className="self-stretch relative leading-[140%] text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
-                Fitness event Is Started
+        <div className="self-stretch flex flex-col items-start justify-center py-2.5 px-5">
+          <div className="self-stretch flex flex-row items-start justify-start relative gap-[12px]">
+            <div className="flex flex-row items-start justify-start z-[0]">
+              <img
+                className="w-10 relative rounded-[7.38px] h-10 overflow-hidden shrink-0"
+                src="/3.png"
+              />
+            </div>
+            <div className="flex-1 flex flex-col items-start justify-center gap-[8px] z-[1]">
+              <div className="self-stretch relative leading-[140%]">
+                <span>{`Fitness event `}</span>
+                <span>starting in</span>
+                <span> 15 Mins</span>
               </div>
-              <div className="self-stretch rounded-sm bg-[#323134] flex flex-row items-center justify-start py-2 px-2.5 gap-[12px] text-sm">
-                <img
-                  className="w-10 relative rounded-sm h-10 overflow-hidden shrink-0 object-cover"
-                  src="/4.png"
-                />
-                <div className="flex-1 flex flex-col items-start justify-center gap-[2px]">
-                  <div className="self-stretch relative leading-[140%] font-medium text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
-                    Fitnest Event
-                  </div>
-                  <div className="flex flex-row items-center justify-center gap-[6px] opacity-[0.8] text-xs">
-                    <div className="relative leading-[140%] text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] opacity-[0.5]">
-                      30Mins Left
-                    </div>
-                    <div className="w-1 relative rounded-[50%] bg-gray-300 h-1" />
-                    <div className="relative leading-[140%] text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] opacity-[0.5]">
-                      503 Participant
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-4xs bg-[#7E47EB] overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px] text-2xs-5 text-neutral-00">
+              <div className="flex flex-row items-center justify-start gap-[8px] text-2xs-5">
+                <div className="rounded-4xs bg-[#412E67] overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
                   <img
                     className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
                     alt=""
                   />
-                  <div className="relative leading-[15px] font-semibold opacity-[0.9]">
+                  <div className="relative leading-[15px] font-semibold opacity-[0.5]">
                     Join Event
+                  </div>
+                  <img
+                    className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
+                    alt=""
+                  />
+                </div>
+                <div className="rounded-4xs bg-neutral-90 overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px]">
+                  <img
+                    className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
+                    alt=""
+                  />
+                  <div className="relative leading-[15px] font-semibold">
+                    Add reminder
                   </div>
                   <img
                     className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
@@ -237,8 +212,58 @@ const NotificationContainer: NextPage = () => {
               </div>
             </div>
           </div>
-
         </div>
+        <div className="self-stretch flex flex-col items-start justify-center py-2.5 px-5 text-gray-3000">
+          <div className="self-stretch flex flex-row items-start justify-start relative gap-[12px]">
+            <div className="flex flex-row items-start justify-start z-[0]">
+              <img
+                className="w-10 relative rounded-[7.38px] h-10 overflow-hidden shrink-0"
+                src="/3.png"
+              />
+            </div>
+            <div className="flex-1 flex flex-col items-start justify-center z-[1]">
+              <div className="self-stretch flex flex-col items-start justify-center gap-[2px]">
+                <div className="self-stretch relative leading-[140%] text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                  Fitness event Is Started
+                </div>
+                <div className="self-stretch rounded-sm bg-[#323134] flex flex-row items-center justify-start py-2 px-2.5 gap-[12px] text-sm">
+                  <img
+                    className="w-10 relative rounded-sm h-10 overflow-hidden shrink-0 object-cover"
+                    src="/4.png"
+                  />
+                  <div className="flex-1 flex flex-col items-start justify-center gap-[2px]">
+                    <div className="self-stretch relative leading-[140%] font-medium text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                      Fitnest Event
+                    </div>
+                    <div className="flex flex-row items-center justify-center gap-[6px] opacity-[0.8] text-xs">
+                      <div className="relative leading-[140%] text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] opacity-[0.5]">
+                        30Mins Left
+                      </div>
+                      <div className="w-1 relative rounded-[50%] bg-gray-300 h-1" />
+                      <div className="relative leading-[140%] text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_linear-gradient(rgba(255,_255,_255,_0.4),_rgba(255,_255,_255,_0.4)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] opacity-[0.5]">
+                        503 Participant
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-4xs bg-[#7E47EB] overflow-hidden flex flex-row items-center justify-center py-1.5 px-[10.5px] gap-[6px] text-2xs-5 text-neutral-00">
+                    <img
+                      className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
+                      alt=""
+                    />
+                    <div className="relative leading-[15px] font-semibold opacity-[0.9]">
+                      Join Event
+                    </div>
+                    <img
+                      className="w-[15px] relative h-[15px] overflow-hidden shrink-0 hidden"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
       {/* <div className="self-stretch flex flex-col items-start justify-center py-2.5 px-5">
         <div className="self-stretch flex flex-row items-start justify-start relative gap-[12px]">

@@ -1,24 +1,45 @@
 import type { NextPage } from "next";
 import FrameComponent1 from "./live_frame-component1";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 interface NavigateProps {
   IncreaseScreenSize: () => void;
   DecreaseScreenSize: () => void;
+  handleClick1: () => void;
+  handleClick111: (event:any) => void;
+  isContentVisible:boolean;
+  handleToggleContent: (event: any) => void;
   zoomFactor: number
 }
 const FrameComponent: React.FC<NavigateProps> = ({
   IncreaseScreenSize,
   DecreaseScreenSize,
+  handleToggleContent,
+  handleClick1,
+  handleClick111,
+  isContentVisible,
   zoomFactor
 }) => {
-  const [isContentVisible, setIsContentVisible] = useState(false);
+  const divRef = useRef<HTMLDivElement>(null);
 
-  const handleToggleContent = () => {
-    setIsContentVisible(!isContentVisible);
-  };
+
+
+  // const handleClick = (event: any) => {
+  //   event.stopPropagation();
+  //   if (divRef.current && divRef.current.contains(event.target)) {
+  //     // Click occurred inside the div, no action needed
+  //     console.log(isContentVisible)
+  //   } else {
+  //     // Click occurred outside the div, change isSearchClicked to false
+  //     // Add logic to change isSearchClicked to false here
+  //     setIsContentVisible(false);
+  //   }
+
+  // };
   return (
-    <div className="self-stretch flex flex-col items-start justify-start gap-[31px] text-center text-13xl text-gray-700 font-headline-2-regular mq450:gap-[15px_31px]">
+    <div 
+    onClick={handleClick1}
+    className="self-stretch flex flex-col items-start justify-start gap-[31px] text-center text-13xl text-gray-700 font-headline-2-regular mq450:gap-[15px_31px]">
       <div className="flex flex-row items-start justify-start py-0 px-2.5">
         <button className="bg-[#808080] cursor-pointer py-[14.5px] px-[15px] rounded-46xl flex flex-row items-start justify-start gap-[8px] whitespace-nowrap border-[1px] border-solid border-dimgray-300 hover:bg-[#808080] hover:box-border hover:border-[1px] hover:border-solid hover:border-gray-900">
           <img
@@ -62,7 +83,10 @@ const FrameComponent: React.FC<NavigateProps> = ({
           </div>
         </div>
         {isContentVisible && (
-          <div className="w-[233px] !m-[0] absolute bottom-[50px] left-[0px] rounded-3xs bg-gray-3100 shadow-[0px_4px_10px_rgba(109,_109,_109,_0.17)_inset,_0px_126px_35px_rgba(0,_0,_0,_0.01),_0px_81px_32px_rgba(0,_0,_0,_0.06),_0px_45px_27px_rgba(0,_0,_0,_0.2),_0px_20px_20px_rgba(0,_0,_0,_0.34),_0px_5px_11px_rgba(0,_0,_0,_0.4)] [backdrop-filter:blur(40px)] box-border overflow-hidden flex flex-row items-start justify-start border-[1px] border-solid border-dimgray-400">
+          <div 
+          ref={divRef}
+          onClick={handleClick111}
+          className="w-[233px] !m-[0] absolute bottom-[50px] left-[0px] rounded-3xs bg-gray-3100 shadow-[0px_4px_10px_rgba(109,_109,_109,_0.17)_inset,_0px_126px_35px_rgba(0,_0,_0,_0.01),_0px_81px_32px_rgba(0,_0,_0,_0.06),_0px_45px_27px_rgba(0,_0,_0,_0.2),_0px_20px_20px_rgba(0,_0,_0,_0.34),_0px_5px_11px_rgba(0,_0,_0,_0.4)] [backdrop-filter:blur(40px)] box-border overflow-hidden flex flex-row items-start justify-start border-[1px] border-solid border-dimgray-400">
             <div className="flex-1 flex flex-col items-start justify-start py-1 px-0">
               <div className="self-stretch rounded-md flex flex-col items-start justify-start py-1 px-2">
                 <div className="self-stretch flex flex-row items-center justify-start gap-[6px]">
@@ -97,7 +121,8 @@ const FrameComponent: React.FC<NavigateProps> = ({
                   </div>
                 </div>
               </div>
-              <div className="self-stretch rounded-md flex flex-row items-center justify-start py-1 px-2">
+              <div 
+              className="self-stretch rounded-md flex flex-row items-center justify-start py-1 px-2">
                 <div className="flex-1 flex flex-row items-center justify-start gap-[6px]">
                   <div className="cursor-pointer h-[34px] w-[34px] rounded-lg bg-neutral-90 box-border flex flex-row items-center justify-center py-2 px-[5px] border-[1px] border-solid border-dimgray-600">
                     <img

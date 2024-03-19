@@ -15,16 +15,29 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isClickedScreen, setIsClickedScreen] = useState(false);
   const [isBelClicked, setIsBelClicked] = useState(false);
+  const [isHClicked, setIsHClicked] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [isSearchClicked1, setIsSearchClicked1] = useState(false);
   const [isListLayout, setIsListLayout] = useState(true);
   const router = useRouter();
   const handleClicked = () => {
     setIsClicked(!isClicked);
+    setIsBelClicked(false);
+    setIsHClicked(false);
+    setIsSearchClicked(false);
+  };
+  const handleHClick = () => {
+    setIsClicked(false);
+    setIsBelClicked(false);
+    setIsHClicked(!isHClicked);
+    setIsSearchClicked(false);
   };
 
   const handleSpace = () => {
     router.push("/profile-page-called");
+    setIsClicked(false);
+    setIsBelClicked(false);
+    setIsSearchClicked(false);
   };
   const handleClickMove = (event: any) => {
     event.stopPropagation();
@@ -38,12 +51,35 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
   };
   const handleSearchClick = () => {
     setIsSearchClicked1(!isSearchClicked1);
+    setIsClicked(false);
     setIsClickedScreen(true);
+    setIsBelClicked(false);
+    setIsHClicked(false);
     console.log(isSearchClicked1);
   };
-
+  const handlec1 = (event: any) => {
+    event.stopPropagation();
+    setIsClicked(true);
+    setIsHClicked(false);
+    setIsBelClicked(false);
+  };
+  const handlec2 = (event: any) => {
+    event.stopPropagation();
+    setIsClicked(false);
+    setIsHClicked(false);
+    setIsBelClicked(true);
+  };
+  const handlec3 = (event: any) => {
+    event.stopPropagation();
+    setIsClicked(false);
+    setIsHClicked(true);
+    setIsBelClicked(false);
+  };
   const handleBelClicked = () => {
     setIsBelClicked(!isBelClicked);
+    setIsHClicked(false);
+    setIsClicked(false);
+    setIsSearchClicked(false);
   };
   const [isListClicked, setIsListClicked] = useState(true);
 
@@ -51,7 +87,12 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
     setIsListClicked(true);
     setIsListLayout(true);
   };
-
+  const changeState = () => {
+    setIsClicked(false);
+    setIsHClicked(false);
+    console.log(isClicked);
+    setIsBelClicked(false);
+  };
   const handleLayoutClick = () => {
     setIsListClicked(false);
     setIsListLayout(false);
@@ -112,7 +153,10 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
                     src="/searchlg.svg"
                   />
                 </div>
-                <div className="cursor-pointer w-[30px] rounded-md bg-gray-100 box-border flex flex-row items-start justify-start py-2 px-[7px] border-[1px] border-solid border-stroke-gradient-dark">
+                <div
+                  onClick={changeState}
+                  className="cursor-pointer w-[30px] rounded-md bg-gray-100 box-border flex flex-row items-start justify-start py-2 px-[7px] border-[1px] border-solid border-stroke-gradient-dark"
+                >
                   <img
                     className="h-3.5 w-3.5 relative"
                     alt=""
@@ -123,7 +167,10 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
             </div>
             <div className="flex-1 flex flex-col items-start justify-start pt-[2.5px] px-0 pb-0">
               <div className="self-stretch flex flex-row items-start justify-start gap-[8px]">
-                <div className="cursor-pointer w-[30px] rounded-md bg-gray-100 box-border flex flex-row items-start justify-start py-2 px-[7px] border-[1px] border-solid border-stroke-gradient-dark">
+                <div
+                  onClick={changeState}
+                  className="cursor-pointer w-[30px] rounded-md bg-gray-100 box-border flex flex-row items-start justify-start py-2 px-[7px] border-[1px] border-solid border-stroke-gradient-dark"
+                >
                   <img
                     className="h-3.5 w-3.5 relative"
                     alt=""
@@ -145,9 +192,12 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
                 </button>
               </div>
             </div>
-            <div className="cursor-pointer rounded-[8px] bg-purple-color-base overflow-hidden flex flex-row items-center justify-center p-2">
+            <div
+              onClick={changeState}
+              className="cursor-pointer rounded-[7px] bg-purple-color-base overflow-hidden flex flex-row items-center justify-center p-2 mt-1"
+            >
               <img
-                className="h-5 w-5 relative overflow-hidden shrink-0"
+                className="h-4 w-4 relative overflow-hidden shrink-0"
                 loading="lazy"
                 alt=""
                 src="/Icon.png"
@@ -170,7 +220,10 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
                   <div className="h-[7.5px] w-[7.5px] absolute !m-[0] top-[5px] left-[17px] rounded-[50%] bg-red box-border z-[1] border-[0px] border-solid border-gray-1500" />
                 </div>
               </div>
-              <div className="cursor-pointer h-9 w-9 flex flex-row items-start justify-start">
+              <div
+                onClick={handleHClick}
+                className="cursor-pointer h-9 w-9 flex flex-row items-start justify-start"
+              >
                 <div className="h-[37.87px] flex-1 rounded-md bg-dodgerblue box-border overflow-hidden flex flex-row items-start justify-start py-[9px] pr-[13px] pl-3 border-[0.9px] border-solid border-gray-1500">
                   <div className="relative leading-[140%] font-semibold whitespace-nowrap">
                     H
@@ -188,27 +241,40 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
           <Bar onSearchClick={handleSearchClick} />
         </div>
       </header>
-      <section className="w-[1240px] flex flex-col items-start justify-start gap-[24px] max-w-full text-left text-xl text-neutral-00 font-caption-1-medium">
+      <section
+        onClick={changeState}
+        className="w-[1240px] flex flex-col items-start justify-start gap-[24px] max-w-full text-left text-xl text-neutral-00 font-caption-1-medium"
+      >
         <div className="self-stretch flex flex-col items-start justify-start gap-[17px] max-w-full">
           <NavigatorNode
             isClicked={isClicked}
             isListClicked={isListClicked}
             isBelClicked={isBelClicked}
+            isHClicked={isHClicked}
             isListLayout={isListLayout}
             handleListClick={handleListClick}
+            handlec1={handlec1}
+            handlec2={handlec2}
+            handlec3={handlec3}
+            handleHClick={handleHClick}
             handleLayoutClick={handleLayoutClick}
             theme={theme}
           />
           <ConstantNodes isListLayout={isListLayout} />
         </div>
-        <div className="self-stretch flex flex-row items-start justify-between gap-[20px] mq450:flex-wrap">
+        <div
+           onClick={changeState}
+          className="self-stretch flex flex-row items-start justify-between gap-[20px] mq450:flex-wrap"
+        >
           <div className="flex flex-col items-start justify-start pt-[6.5px] px-0 pb-0">
             <h2 className="m-0 relative text-inherit tracking-[-0.01em] font-medium font-inherit mq450:text-base">
               My Teams
             </h2>
           </div>
 
-          <div className="flex flex-row items-start justify-start gap-[8px] text-sm text-text-for-dark-70">
+          <div 
+             onClick={changeState}
+             className="flex flex-row items-start justify-start gap-[8px] text-sm text-text-for-dark-70">
             <div className="rounded-3xs bg-gray-600 shadow-[2px_2px_4px_rgba(0,_0,_0,_0.25)_inset] flex flex-row items-start justify-start py-0 px-1">
               <div className="rounded-42xl flex flex-row items-start justify-start gap-[8px]">
                 <div className="rounded-3xs flex flex-row items-start justify-start py-1 px-0 text-text-for-dark-100">
@@ -288,7 +354,6 @@ const ProfilePageChannelCalled: React.FC<NavigateProps> = ({ theme }) => {
         } w-full !m-[0] absolute h-full top-[0px] right-[0px] bottom-[0px] left-[0px] bg-gray-2300 [backdrop-filter:blur(24px)] overflow-hidden flex flex-row items-start justify-center py-[309px] pr-5 pl-[21px] box-border max-w-full z-[3]`}
       >
         <div
-          ref={divRef}
           onClick={handleClickMove}
           className="w-[573px] rounded-lg1 bg-gray-2200 box-border overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[1px] max-w-full border-[1px] border-solid border-stroke-gradient-dark"
         >

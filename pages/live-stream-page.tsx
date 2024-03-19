@@ -1,12 +1,16 @@
 import type { NextPage } from "next";
 import FrameComponent from "../components/live_frame-component";
 import QnaItem from "../components/qna-item";
-import { useState, useEffect, useContext } from "react";
+import { useState,useRef,useEffect } from "react";
 import PolsBase from "../components/pols-base";
 import { useTheme } from "next-themes";
 
 const LivesStreamPageDark: NextPage = () => {
+  const divRef = useRef<HTMLDivElement>(null);
+
   const qnaData = [{}, {}, {}];
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
   const [isClicked, setIsClicked] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClickedQA, setIsClickedQA] = useState(false);
@@ -19,17 +23,42 @@ const LivesStreamPageDark: NextPage = () => {
     setZoomFactor((prevFactor) => Math.min(200, prevFactor + 10));
     console.log(zoomFactor)
   };
+  const handleClick1 = () => {
+    setIsContentVisible(false);
+  };  
+  const handleClick111 = (event:any) => {
+    event.stopPropagation();
+
+    setIsContentVisible(true);
+    console.log('sss')
+  };
+  const handleClick = (event: any) => {
+    event.stopPropagation();
+    if (divRef.current && divRef.current.contains(event.target)) {
+      // Click occurred inside the div, no action needed
+    } else {
+      // Click occurred outside the div, change isSearchClicked to false
+      // Add logic to change isSearchClicked to false here
+      setIsContentVisible(false);
+    }
+
+  };
   const DecreaseScreenSize = () => {
     setZoomFactor((prevFactor) => Math.max(25, prevFactor - 10)); // Decrease zoom factor by 10%, with a minimum value of 10%
   };
 
+  const handleToggleContent = (event:any) => {
+    event.stopPropagation();
+
+    setIsContentVisible(!isContentVisible);
+  };
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   const toggleTheme = (value: any) => {
-    console.log(value);
     setTheme(value);
   };
+
   // useEffect(() => {
   //   // Set initial screen size
 
@@ -40,14 +69,12 @@ const LivesStreamPageDark: NextPage = () => {
 
   //   // Clean up the event listener
   // }, [theme]);
-  console.log(theme)
-
+useEffect(() => {
+  console.log('ggg',theme);
+}) 
   return (
     <div
-      style={{
-        transform: `scale(${zoomFactor / 100})`,
-        transformOrigin: "top",
-      }}
+    onClick={handleClick1}
     >
       <div
         className={`min-h-screen max-w-[1449px] mx-auto p-6 flex flex-col gap-7 `}
@@ -58,13 +85,18 @@ const LivesStreamPageDark: NextPage = () => {
             <FrameComponent
               IncreaseScreenSize={IncreaseScreenSize}
               DecreaseScreenSize={DecreaseScreenSize}
+              isContentVisible={isContentVisible}
+              handleToggleContent={handleToggleContent}
               zoomFactor={zoomFactor}
+              handleClick1={handleClick1}
+              handleClick111={handleClick111}
             />
           </div>
 
-          <div className="flex flex-col justify-center ml-3">
+          <div 
+          className="flex flex-col justify-center ml-3">
             <button
-              className="relative cursor-pointer p-2"
+              className={`relative cursor-pointer p-2 bg-gray-3300 ${theme==="light"? "bg-white":'' } `}
               onClick={() => {
                 if (theme === "dark") {
                   return setTheme("light");
@@ -144,40 +176,17 @@ const LivesStreamPageDark: NextPage = () => {
                         src="/chevronup.svg"
                       />
                     </button>
-                    {isDropdownOpen && (
-                      <div className="absolute top-10 right-0 mt-2 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5 p-1 space-y-1">
-                        {/* Dropdown content goes here */}
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md"
-                        >
-                          Uppercase
-                        </a>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md"
-                        >
-                          Lowercase
-                        </a>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md"
-                        >
-                          Camel Case
-                        </a>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md"
-                        >
-                          Kebab Case
-                        </a>
-                      </div>
-                    )}
+
                   </div>
                 </div>
               </div>
             </div>
-            <section className="self-stretch flex flex-col items-start justify-start py-0 pr-0 pl-4 box-border gap-[16px] max-w-full text-left text-lg text-neutral-00 font-headline-2-regular">
+            <section
+            
+            style={{
+              transform: `scale(${zoomFactor / 100})`,
+              transformOrigin: "top",
+            }}className="self-stretch flex flex-col items-start justify-start py-0 pr-0 pl-4 box-border gap-[16px] max-w-full text-left text-lg text-neutral-00 font-headline-2-regular">
               {isClickedQA == false ? (
                 <div>
                   <div className="self-stretch flex flex-col items-start justify-start gap-[8px] shrink-0">

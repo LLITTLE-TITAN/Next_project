@@ -5,218 +5,13 @@ interface NavigateProps {
   isListLayout: boolean;
 }
 const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
-  const [isClicked, setIsClicked] = useState("0");
+  const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
-    setIsClicked("1");
+    setIsClicked(true);
   };
   return (
     <div className="relative self-stretch flex flex-row items-start justify-center gap-[16.19999999999999px] text-left text-xs text-neutral-00 font-caption-1-medium mq1025:flex-wrap">
-      {/* {isClicked == "0" ? (
-        <div className="relative self-stretch flex flex-row items-start justify-center gap-[16.19999999999999px] text-left text-xs text-neutral-00 font-caption-1-medium mq1025:flex-wrap">
-          <div
-            onClick={handleClick}
-            className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]"
-          >
-            <img
-              className="w-[420px] h-[588px] absolute !m-[0] top-[-324px] right-[-93px] object-cover"
-              alt=""
-              src="/image-137@2x.png"
-            />
-            <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
-            <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[2]">
-              <div className="flex flex-col items-start justify-start pt-[2.5px] px-0 pb-0">
-                <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
-              </div>
-              <div className="flex flex-row items-start justify-start gap-[6px]">
-                <img
-                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
-                  loading="lazy"
-                  alt=""
-                  src="/avatar@2x.png"
-                />
-                <img
-                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
-                  loading="lazy"
-                  alt=""
-                  src="/avatar-1@2x.png"
-                />
-                <img
-                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
-                  loading="lazy"
-                  alt=""
-                  src="/avatar@2x.png"
-                />
-              </div>
-            </div>
-            <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <div className="relative z-[2]">
-                <span>
-                  <span className="font-medium">20</span>
-                </span>
-                <span className="text-gray-2800">
-                  <span>{` `}</span>
-                  <span>Total Video</span>
-                </span>
-              </div>
-              <div className="self-stretch flex flex-col items-start justify-start gap-[16px] text-base">
-                <div className="self-stretch relative leading-[120%] font-medium z-[2]">
-                  How we plan the beautiful trip in Bali, Ind...
-                </div>
-                <div className="flex flex-row items-start justify-start gap-[8px]">
-                  <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0">
-                    <img
-                      className="w-5 h-5 rounded-md overflow-hidden shrink-0 object-cover z-[2]"
-                      loading="lazy"
-                      alt=""
-                      src="/avatar-3@2x.png"
-                    />
-                  </div>
-                  <div className="h-[19.5px] flex flex-col items-start justify-start pt-[8.5px] px-0 pb-0 box-border">
-                    <div className="w-px h-[11px] relative box-border opacity-[0.5] z-[2] border-r-[1px] border-solid border-neutral-00" />
-                  </div>
-                  <button className="cursor-pointer [border:none] py-1 pr-2 pl-1 bg-gray-2600 rounded-sm1 [backdrop-filter:blur(8px)] flex flex-row items-start justify-start gap-[6px] z-[2]">
-                    <img
-                      className="h-5 w-5 rounded-md overflow-hidden shrink-0 object-cover"
-                      alt=""
-                      src="/avatar-4@2x.png"
-                    />
-                    <div className="flex flex-col items-start justify-start pt-[3.5px] px-0 pb-0">
-                      <div className="relative text-3xs font-medium font-caption-1-medium text-neutral-00 text-left">
-                        +420 Subscriber
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-end justify-start py-0 pr-[0.1999999999998181px] pl-0 relative gap-[10px] z-[1]">
-            <img
-              className="w-[241px] h-[292px] absolute !m-[0] top-[calc(50%_-_146px)] right-[-1.8px] object-cover"
-              alt=""
-              src="/image-140@2x.png"
-            />
-            <div className="w-[239px] flex flex-row items-start justify-start pt-5 pb-6 pr-[19.800000000000185px] pl-[26.199999999999815px] box-border relative">
-              <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
-              <EraserNode
-                avatar="/avatar-5@2x.png"
-                avatar1="/avatar-6@2x.png"
-                avatar2="/avatar-5@2x.png"
-                avatar3="/avatar-8@2x.png"
-                avatar4="/avatar-9@2x.png"
-              />
-            </div>
-          </div>
-          <div className="flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]">
-            <img
-              className="w-[278px] h-[417px] absolute !m-[0] top-[-99px] right-[-21.6px] object-cover"
-              alt=""
-              src="/image-141@2x.png"
-            />
-            <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
-            <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[2]">
-              <div className="flex flex-col items-start justify-start pt-[2.5px] px-0 pb-0">
-                <div className="w-[11px] h-[11px] relative rounded  bg-[firebrick]" />
-              </div>
-              <div className="flex flex-row items-start justify-start gap-[6px]">
-                <img
-                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
-                  loading="lazy"
-                  alt=""
-                  src="/avatar-10@2x.png"
-                />
-                <img
-                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
-                  alt=""
-                  src="/avatar@2x.png"
-                />
-                <img
-                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
-                  alt=""
-                  src="/avatar-10@2x.png"
-                />
-              </div>
-            </div>
-            <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <div className="relative z-[2]">
-                <span>
-                  <span className="font-medium">20</span>
-                </span>
-                <span className="text-gray-2800">
-                  <span>{` `}</span>
-                  <span>Total Video</span>
-                </span>
-              </div>
-              <div className="self-stretch flex flex-col items-start justify-start gap-[16px] text-base">
-                <div className="self-stretch relative leading-[120%] font-medium z-[2]">
-                  How we plan the beautiful trip in Bali, Ind...
-                </div>
-                <div className="flex flex-row items-start justify-start gap-[8px]">
-                  <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0">
-                    <img
-                      className="w-5 h-5 rounded-md overflow-hidden shrink-0 object-cover z-[2]"
-                      loading="lazy"
-                      alt=""
-                      src="/avatar-13@2x.png"
-                    />
-                  </div>
-                  <div className="h-[19.5px] flex flex-col items-start justify-start pt-[8.5px] px-0 pb-0 box-border">
-                    <div className="w-px h-[11px] relative box-border opacity-[0.5] z-[2] border-r-[1px] border-solid border-neutral-00" />
-                  </div>
-                  <button className="cursor-pointer [border:none] py-1 pr-2 pl-1 bg-gray-2600 rounded-sm1 [backdrop-filter:blur(8px)] flex flex-row items-start justify-start gap-[6px] z-[2]">
-                    <img
-                      className="h-5 w-5 rounded-md overflow-hidden shrink-0 object-cover"
-                      alt=""
-                      src="/avatar-14@2x.png"
-                    />
-                    <div className="flex flex-col items-start justify-start pt-[3.5px] px-0 pb-0">
-                      <div className="relative text-3xs font-medium font-caption-1-medium text-neutral-00 text-left">
-                        +420 Subscriber
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex-1 rounded-lg bg-surface-color-surface-2 box-border overflow-hidden flex flex-row items-start justify-start pt-5 px-[19px] pb-6 min-w-[153px] z-[1] border-[1px] border-solid border-stroke-gradient-dark">
-            <EraserNode
-              avatar="/avatar@2x.png"
-              avatar1="/avatar@2x.png"
-              avatar2="/avatar@2x.png"
-              avatar3="/avatar-18@2x.png"
-              avatar4="/avatar-19@2x.png"
-              propFlex="1"
-              propWidth="unset"
-              propMargin="unset"
-              propPosition="unset"
-              propTop="unset"
-              propLeft="unset"
-            />
-          </div>
-          <div className="h-[220px] flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-row items-start justify-start p-5 box-border relative gap-[10px] min-w-[153px] z-[1]">
-            <img
-              className="h-[432px] w-[296px] absolute !m-[0] top-[calc(50%_-_216px)] left-[calc(50%_-_148.3px)] object-cover"
-              alt=""
-              src="/image-143@2x.png"
-            />
-            <div className="h-full w-full absolute !m-[0] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
-            <EraserNode
-              avatar="/avatar@2x.png"
-              avatar1="/avatar@2x.png"
-              avatar2="/avatar@2x.png"
-              avatar3="/avatar-23@2x.png"
-              avatar4="/avatar-24@2x.png"
-              propFlex="unset"
-              propWidth="195px"
-              propMargin="0 !important"
-              propPosition="absolute"
-              propTop="20px"
-              propLeft="20px"
-            />
-          </div>
-        </div>
-      ) : (
+      {isClicked == true ? (
         <div className="self-stretch flex flex-row flex-wrap items-end justify-start py-0 pr-0.5 pl-0 gap-[10px_54px] shrink-0 [debug_commit:612783b] text-lg text-gray-2900 mq725:gap-[10px_27px]">
           <div className="h-[101.8px] w-[184px] flex flex-col items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[6px]">
@@ -317,14 +112,16 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
             </div>
           </div>
         </div>
-      )} */}
-      
-      {isListLayout == false ? (
-        <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5 h-[500px] overflow-y-scroll">
-          <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
+      ):(
+        <>
+        {isListLayout == false ? (
+        <div
+        style={{ scrollbarWidth: "none" }}
+        className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5 h-[500px] overflow-y-scroll">
+          <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden w-[270px] md:max-w-2xl m-5">
             <div
               onClick={handleClick}
-              className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]"
+              className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[1px] z-[1]"
             >
               <img
                 className="w-[420px] h-[588px] absolute !m-[0] top-[-324px] right-[-93px] object-cover"
@@ -400,7 +197,7 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
               </div>
             </div>
           </div>
-          <div className="max-w-md/2 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
+          <div className="max-w-md/2 mx-auto rounded-xl shadow-md w-[270px] overflow-hidden md:max-w-2xl m-5">
             <div
               onClick={handleClick}
               className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]"
@@ -408,7 +205,7 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
               <img
                 className="w-[420px] h-[588px] absolute !m-[0] top-[-324px] right-[-93px] object-cover"
                 alt=""
-                src="/image-137@2x.png"
+                src="/image-140@2x.png"
               />
               <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
               <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[2]">
@@ -479,7 +276,7 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
               </div>
             </div>
           </div>
-          <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
+          <div className="max-w-md mx-auto rounded-xl shadow-md w-[270px] overflow-hidden md:max-w-2xl m-5">
             <div
               onClick={handleClick}
               className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]"
@@ -487,7 +284,7 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
               <img
                 className="w-[420px] h-[588px] absolute !m-[0] top-[-324px] right-[-93px] object-cover"
                 alt=""
-                src="/image-137@2x.png"
+                src="/image-141@2x.png"
               />
               <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
               <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[2]">
@@ -639,21 +436,81 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
               </div>
             </div>
           </div>
-          <div className="rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-end justify-start py-0 pr-[0.1999999999998181px] pl-0 relative gap-[10px] z-[1]">
+          <div
+            onClick={handleClick}
+            className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]"
+          >
             <img
               className="w-[241px] h-[292px] absolute !m-[0] top-[calc(50%_-_146px)] right-[-1.8px] object-cover"
               alt=""
               src="/image-140@2x.png"
             />
-            <div className="w-[239px] flex flex-row items-start justify-start pt-5 pb-6 pr-[19.800000000000185px] pl-[26.199999999999815px] box-border relative">
-              <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
-              <EraserNode
-                avatar="/avatar-5@2x.png"
-                avatar1="/avatar-6@2x.png"
-                avatar2="/avatar-5@2x.png"
-                avatar3="/avatar-8@2x.png"
-                avatar4="/avatar-9@2x.png"
-              />
+            <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
+            <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[2]">
+              <div className="flex flex-col items-start justify-start pt-[2.5px] px-0 pb-0">
+                <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
+              </div>
+              <div className="flex flex-row items-start justify-start gap-[6px]">
+                <img
+                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
+                  loading="lazy"
+                  alt=""
+                  src="/avatar@2x.png"
+                />
+                <img
+                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
+                  loading="lazy"
+                  alt=""
+                  src="/avatar-1@2x.png"
+                />
+                <img
+                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
+                  loading="lazy"
+                  alt=""
+                  src="/avatar@2x.png"
+                />
+              </div>
+            </div>
+            <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
+              <div className="relative z-[2]">
+                <span>
+                  <span className="font-medium">20</span>
+                </span>
+                <span className="text-gray-2800">
+                  <span>{` `}</span>
+                  <span>Total Video</span>
+                </span>
+              </div>
+              <div className="self-stretch flex flex-col items-start justify-start gap-[16px] text-base">
+                <div className="self-stretch relative leading-[120%] font-medium z-[2]">
+                  How we plan the beautiful trip in Bali, Ind...
+                </div>
+                <div className="flex flex-row items-start justify-start gap-[8px]">
+                  <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0">
+                    <img
+                      className="w-5 h-5 rounded-md overflow-hidden shrink-0 object-cover z-[2]"
+                      loading="lazy"
+                      alt=""
+                      src="/avatar-3@2x.png"
+                    />
+                  </div>
+                  <div className="h-[19.5px] flex flex-col items-start justify-start pt-[8.5px] px-0 pb-0 box-border">
+                    <div className="w-px h-[11px] relative box-border opacity-[0.5] z-[2] border-r-[1px] border-solid border-neutral-00" />
+                  </div>
+                  <button className="cursor-pointer [border:none] py-1 pr-2 pl-1 bg-gray-2600 rounded-sm1 [backdrop-filter:blur(8px)] flex flex-row items-start justify-start gap-[6px] z-[2]">
+                    <img
+                      className="h-5 w-5 rounded-md overflow-hidden shrink-0 object-cover"
+                      alt=""
+                      src="/avatar-4@2x.png"
+                    />
+                    <div className="flex flex-col items-start justify-start pt-[3.5px] px-0 pb-0">
+                      <div className="relative text-3xs font-medium font-caption-1-medium text-neutral-00 text-left">
+                        +420 Subscriber
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]">
@@ -743,29 +600,88 @@ const ConstantNodes: React.FC<NavigateProps> = ({ isListLayout }) => {
               propLeft="unset"
             />
           </div>
-          <div className="h-[220px] flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-row items-start justify-start p-5 box-border relative gap-[10px] min-w-[153px] z-[1]">
+          <div
+            onClick={handleClick}
+            className="cursor-pointer flex-1 rounded-lg bg-neutral-00 overflow-hidden flex flex-col items-start justify-start pt-5 px-5 pb-8 box-border relative gap-[47px] min-w-[153px] z-[1]"
+          >
             <img
               className="h-[432px] w-[296px] absolute !m-[0] top-[calc(50%_-_216px)] left-[calc(50%_-_148.3px)] object-cover"
               alt=""
               src="/image-143@2x.png"
             />
-            <div className="h-full w-full absolute !m-[0] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
-            <EraserNode
-              avatar="/avatar@2x.png"
-              avatar1="/avatar@2x.png"
-              avatar2="/avatar@2x.png"
-              avatar3="/avatar-23@2x.png"
-              avatar4="/avatar-24@2x.png"
-              propFlex="unset"
-              propWidth="195px"
-              propMargin="0 !important"
-              propPosition="absolute"
-              propTop="20px"
-              propLeft="20px"
-            />
+            <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0.7),_rgba(0,_0,_0,_0)_56.65%,_rgba(0,_0,_0,_0.51))] z-[1]" />
+            <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[2]">
+              <div className="flex flex-col items-start justify-start pt-[2.5px] px-0 pb-0">
+                <div className="w-[11px] h-[11px] relative rounded bg-[firebrick]" />
+              </div>
+              <div className="flex flex-row items-start justify-start gap-[6px]">
+                <img
+                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
+                  loading="lazy"
+                  alt=""
+                  src="/avatar@2x.png"
+                />
+                <img
+                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
+                  loading="lazy"
+                  alt=""
+                  src="/avatar-1@2x.png"
+                />
+                <img
+                  className="h-4 w-4 rounded-md overflow-hidden shrink-0 object-cover min-h-[16px]"
+                  loading="lazy"
+                  alt=""
+                  src="/avatar@2x.png"
+                />
+              </div>
+            </div>
+            <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
+              <div className="relative z-[2]">
+                <span>
+                  <span className="font-medium">20</span>
+                </span>
+                <span className="text-gray-2800">
+                  <span>{` `}</span>
+                  <span>Total Video</span>
+                </span>
+              </div>
+              <div className="self-stretch flex flex-col items-start justify-start gap-[16px] text-base">
+                <div className="self-stretch relative leading-[120%] font-medium z-[2]">
+                  How we plan the beautiful trip in Bali, Ind...
+                </div>
+                <div className="flex flex-row items-start justify-start gap-[8px]">
+                  <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0">
+                    <img
+                      className="w-5 h-5 rounded-md overflow-hidden shrink-0 object-cover z-[2]"
+                      loading="lazy"
+                      alt=""
+                      src="/avatar-3@2x.png"
+                    />
+                  </div>
+                  <div className="h-[19.5px] flex flex-col items-start justify-start pt-[8.5px] px-0 pb-0 box-border">
+                    <div className="w-px h-[11px] relative box-border opacity-[0.5] z-[2] border-r-[1px] border-solid border-neutral-00" />
+                  </div>
+                  <button className="cursor-pointer [border:none] py-1 pr-2 pl-1 bg-gray-2600 rounded-sm1 [backdrop-filter:blur(8px)] flex flex-row items-start justify-start gap-[6px] z-[2]">
+                    <img
+                      className="h-5 w-5 rounded-md overflow-hidden shrink-0 object-cover"
+                      alt=""
+                      src="/avatar-4@2x.png"
+                    />
+                    <div className="flex flex-col items-start justify-start pt-[3.5px] px-0 pb-0">
+                      <div className="relative text-3xs font-medium font-caption-1-medium text-neutral-00 text-left">
+                        +420 Subscriber
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
+        </>
+      )} 
+      
     </div>
   );
 };
