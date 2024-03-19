@@ -1,6 +1,10 @@
 import type { NextPage } from "next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const NotificationContainer: NextPage = () => {
+  const [isRead, setIsRead] = useState(false);
+  const handleMark = () => {
+    setIsRead(!isRead);
+  }
   useEffect(() => {
     const container = document.getElementById("scroll-container");
     if (container) {
@@ -19,25 +23,27 @@ const NotificationContainer: NextPage = () => {
           <div className="flex-1 relative font-medium text-transparent !bg-clip-text [background:linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0.3)),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
             Your Notification
           </div>
-          <div className="flex flex-row items-center justify-start gap-[4px] text-sm">
-            {/* <input
-              className="w-5 relative h-5 overflow-hidden shrink-0"
-              type="checkbox"
-            /> */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              viewBox="0 0 24 24"
-              className="flex justify-center mt-1"
+          <div 
+          onClick={handleMark}
+          className="cursor-pointer flex flex-row items-center justify-start gap-[4px] text-sm">
+            {isRead && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                className="flex justify-center mt-1"
+              >
+                <path
+                  d="M 15.53125 5 L 9.5625 11.28125 L 8.40625 9.96875 L 7 11.375 L 8.21875 12.71875 L 7 14 L 3.40625 9.96875 L 2 11.375 L 7 17 L 17 6.375 L 15.53125 5 z M 20.53125 5 L 12 14 L 11.59375 13.53125 L 10.21875 15 L 12 17 L 22 6.375 L 20.53125 5 z"
+                  fill="#724bf9"
+                />
+              </svg>
+            )}
+            <div
+              className="relative font-medium text-[#724bf9]"
+              onClick={() => setIsRead(true)}
             >
-              <path
-                d="M 15.53125 5 L 9.5625 11.28125 L 8.40625 9.96875 L 7 11.375 L 8.21875 12.71875 L 7 14 L 3.40625 9.96875 L 2 11.375 L 7 17 L 17 6.375 L 15.53125 5 z M 20.53125 5 L 12 14 L 11.59375 13.53125 L 10.21875 15 L 12 17 L 22 6.375 L 20.53125 5 z"
-                fill="#724bf9"
-              />
-            </svg>
-
-            <div className="relative font-medium text-[#724bf9]">
               Mark all as read
             </div>
           </div>
@@ -263,7 +269,6 @@ const NotificationContainer: NextPage = () => {
             </div>
           </div>
         </div>
-        
       </div>
       {/* <div className="self-stretch flex flex-col items-start justify-center py-2.5 px-5">
         <div className="self-stretch flex flex-row items-start justify-start relative gap-[12px]">
